@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import (all_tasks,
+from main.views import (all_tasks,
                     new_task,
                     update_task,
                     delete_task)
