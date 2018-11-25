@@ -39,3 +39,12 @@ def delete_task(request, id):
         data = serializers.serialize('json', task)
         return HttpResponse(data, content_type='application/json')
     else: return HttpResponse(status=404)
+        
+
+def to_done(request,id):
+    task = Task.objects.filter(id=id, active=True)
+    if task:
+        task.update(is_done=True)
+        data = serializers.serialize('json', task)
+        return HttpResponse(data, content_type='application/json')
+    else: return HttpResponse(status=404)
